@@ -1,8 +1,10 @@
 package com.atguigu.admin.controller;
 
 import com.atguigu.admin.bean.Account;
+import com.atguigu.admin.bean.City;
 import com.atguigu.admin.bean.User;
 import com.atguigu.admin.service.AccountService;
+import com.atguigu.admin.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
@@ -24,10 +26,25 @@ public class IndexController {
     @Autowired
     AccountService accountService;
 
+    @Autowired
+    CityService cityService;
+
+    @GetMapping("/city")
+    @ResponseBody
+    public City getCityById(Long id){
+        return cityService.getById(id);
+    }
+
+    @PostMapping("/city")
+    @ResponseBody
+    public City saveCity(City city){
+        cityService.saveCity(city);
+        return city;
+    }
+
     @GetMapping("/acct")
     @ResponseBody
-    public Account getById(Long id){
-
+    public Account getAccountById(Long id){
         return accountService.getAcctById(id);
     }
 
