@@ -1,6 +1,7 @@
 package com.atguigu.admin.controller;
 
 import com.atguigu.admin.bean.User;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
