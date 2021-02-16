@@ -2,7 +2,8 @@ package com.atguigu.admin.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import springfox.documentation.RequestHandler;
+import org.springframework.core.env.Environment;
+import org.springframework.core.env.Profiles;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
@@ -17,9 +18,15 @@ import java.util.ArrayList;
 public class SwaggerConfig {
     //配置了swagger的Docket的bean实例
     @Bean
-    public Docket docket(){
+    public Docket docket(Environment environment){
+        //设置要显示的swagger环境
+        Profiles profiles = Profiles.of("dev", "test");
+        //通过environment.acceptsProfiles判断是否处在自己设定的环境中
+        boolean flag = environment.acceptsProfiles(profiles);
+
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
+                .enable(flag)
                 .select()
                 //RequestHandlerSelectors配置要扫描接口的方式，例如，基于包名
                 .apis(RequestHandlerSelectors.basePackage("com.atguigu.admin.controller"))
