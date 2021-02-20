@@ -6,7 +6,9 @@ spring:
     username: root
     password:
     driver-class-name: com.mysql.jdbc.Driver
-
+  jdbc:
+    template:
+      query-timeout: 3
     druid:
       aop-patterns: com.atguigu.admin.*
       filters: stat,wall,slf4j
@@ -31,9 +33,6 @@ spring:
           enabled: true
 
     #type: com.zaxxer.hikari.HikariDataSource
-  jdbc:
-    template:
-      query-timeout: 3
 
 mybatis:
   #  config-location: classpath:mybatis/mybatis-config.xml
