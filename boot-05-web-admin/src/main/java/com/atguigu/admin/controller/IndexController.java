@@ -5,7 +5,10 @@ import com.atguigu.admin.bean.City;
 import com.atguigu.admin.bean.User;
 import com.atguigu.admin.service.AccountService;
 import com.atguigu.admin.service.CityService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +19,7 @@ import org.thymeleaf.util.StringUtils;
 
 import javax.servlet.http.HttpSession;
 
+@Slf4j
 @Controller
 public class IndexController {
 
@@ -27,6 +31,9 @@ public class IndexController {
 
     @Autowired
     CityService cityService;
+
+    @Autowired
+    StringRedisTemplate redisTemplate;
 
     @GetMapping("/city")
     @ResponseBody
@@ -83,19 +90,29 @@ public class IndexController {
     public String mainPage(HttpSession session, Model model){
         //必须判断是否登录，不然用户直接访问main页面即可进入后台
         //是否登录，以后通过拦截器判断
-        Object loginUser = session.getAttribute("loginUser");
-        if(loginUser != null) {
-            return "main";
-        } else {
-            model.addAttribute("msg", "请重新登录");
-            return "login";
-        }
+        log.info("当前方法是:{}", "mainPage");
+//        Object loginUser = session.getAttribute("loginUser");
+//        if(loginUser != null) {
+//            return "main";
+//        } else {
+//            model.addAttribute("msg", "请重新登录");
+//            return "login";
+//        }
+        ValueOperations<String, String> opsForValue = redisTemplate.opsForValue();
+
+        String s = opsForValue.get("/main.html");
+        String s1 = opsForValue.get("/sql");
+
+        model.addAttribute("mainCount", s);
+        model.addAttribute("sqlCount", s1);
+
+        return "main";
     }
 
     @ResponseBody
-    @GetMapping("query")
+    @GetMapping("/sql")
     public String queryFromDb(){
-        Long aLong = jdbcTemplate.queryForObject("select count(*) from gdu_app_installed", Long.class);
+        Long aLong = jdbcTemplate.queryForObject("select count(*) from user", Long.class);
         return aLong.toString();
     }
 }
