@@ -65,7 +65,7 @@
         <!--侧边栏导航开始-->
         <ul class="nav nav-pills nav-stacked custom-nav">
             <li class="menu-list">
-                <a th:href="@{/main.html}">
+                <a th:href="@{/main}">
                     <i class="fa fa-home"></i>
                     <span>指示板</span>
                 </a>
@@ -74,7 +74,7 @@
                         <a href="../index_alt.html">指示板 1</a>
                     </li>
                     <li>
-                        <a th:href="@{/main.html}">指示板 2</a>
+                        <a th:href="@{/main}">指示板 2</a>
                     </li>
                 </ul>
             </li>
@@ -185,7 +185,7 @@
                 </a>
                 <ul class="sub-menu-list">
                     <li>
-                        <a href="../form_layouts.html">表单布局</a>
+                        <a th:href="@{form_layouts}">表单布局</a>
                     </li>
                     <li>
                         <a href="../form_advanced_components.html">先进的组件</a>

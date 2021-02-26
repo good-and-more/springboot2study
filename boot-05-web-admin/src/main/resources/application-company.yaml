@@ -43,6 +43,10 @@ spring:
       pool:
         max-active: 10
         min-idle: 5
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 100MB
 #    lettuce:
 #      pool:
 #        max-active: 10
