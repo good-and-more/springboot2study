@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.study.mapper.OrderInfoMapper">
+
+    <resultMap id="BaseResultMap" type="com.atguigu.study.model.OrderInfo">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="scheduleId" column="schedule_id" jdbcType="BIGINT"/>
+            <result property="patientId" column="patient_id" jdbcType="BIGINT"/>
+            <result property="number" column="number" jdbcType="INTEGER"/>
+            <result property="fetchTime" column="fetch_time" jdbcType="VARCHAR"/>
+            <result property="fetchAddress" column="fetch_address" jdbcType="VARCHAR"/>
+            <result property="amount" column="amount" jdbcType="DECIMAL"/>
+            <result property="payTime" column="pay_time" jdbcType="TIMESTAMP"/>
+            <result property="quitTime" column="quit_time" jdbcType="TIMESTAMP"/>
+            <result property="orderStatus" column="order_status" jdbcType="TINYINT"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="isDeleted" column="is_deleted" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,schedule_id,patient_id,
+        number,fetch_time,fetch_address,
+        amount,pay_time,quit_time,
+        order_status,create_time,update_time,
+        is_deleted
+    </sql>
+</mapper>

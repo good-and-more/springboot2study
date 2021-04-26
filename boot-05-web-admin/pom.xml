@@ -90,11 +90,18 @@
 <!--            <version>2.9.2</version>-->
 <!--        </dependency>-->
         <!-- https://mvnrepository.com/artifact/io.springfox/springfox-boot-starter -->
+<!--        <dependency>-->
+<!--            <groupId>io.springfox</groupId>-->
+<!--            <artifactId>springfox-boot-starter</artifactId>-->
+<!--            <version>3.0.0</version>-->
+<!--        </dependency>-->
         <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-boot-starter</artifactId>
-            <version>3.0.0</version>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-spring-boot-starter</artifactId>
+            <!--在引用时请在maven中央仓库搜索3.X最新版本号-->
+            <version>3.0.2</version>
         </dependency>
+
         <!--        swagger相关-->
 
         <dependency>
@@ -112,13 +119,15 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+
+<!--        junit5测试平台 junitplatform+junit jupiter-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
 
-<!--        兼容junit4-->
+<!--        兼容junit4 增加junit vintage-->
 <!--        <dependency>-->
 <!--            <groupId>org.junit.vintage</groupId>-->
 <!--            <artifactId>junit-vintage-engine</artifactId>-->
@@ -130,8 +139,10 @@
 <!--                </exclusion>-->
 <!--            </exclusions>-->
 <!--        </dependency>-->
-<!--    </dependencies>-->
-<!--    兼容junit4-->
+<!--        兼容junit4 增加junit vintage-->
+<!--        junit5测试平台 junitplatform+junit jupiter-->
+    </dependencies>
+
 
     <build>
         <plugins>
