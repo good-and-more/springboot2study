@@ -22,28 +22,28 @@ class Boot09HelloTestApplicationTests {
     void contextLoads() {
     }
 
-    @Test
-    public void testSelect() {
-        List<HospitalSet> list = hospitalSetMapper.selectList(null);
-        System.out.println(list);
-    }
-
-    @Test
-    public void testInsert() {
-        HospitalSet hospitalSet = new HospitalSet();
-        hospitalSet.setHoscode("2000_0");
-        hospitalSet.setSignKey(DigestUtils.md5DigestAsHex("123456".getBytes()));
-        hospitalSet.setApiUrl("http://localhost:8201");
-        int insert = hospitalSetMapper.insert(hospitalSet);
-        System.out.println(insert);
-    }
-
-    @Test
-    public void testDelete() {
-        QueryWrapper<HospitalSet> wrapper = new QueryWrapper<>();
-        wrapper.eq("hoscode", "2000_0");
-        int delete = hospitalSetMapper.delete(wrapper);
-        System.out.println(delete);
-    }
+//    @Test
+//    public void testSelect() {
+//        List<HospitalSet> list = hospitalSetMapper.selectList(null);
+//        System.out.println(list);
+//    }
+//
+//    @Test
+//    public void testInsert() {
+//        HospitalSet hospitalSet = new HospitalSet();
+//        hospitalSet.setHoscode("2000_0");
+//        hospitalSet.setSignKey(DigestUtils.md5DigestAsHex("123456".getBytes()));
+//        hospitalSet.setApiUrl("http://localhost:8201");
+//        int insert = hospitalSetMapper.insert(hospitalSet);
+//        System.out.println(insert);
+//    }
+//
+//    @Test
+//    public void testDelete() {
+//        QueryWrapper<HospitalSet> wrapper = new QueryWrapper<>();
+//        wrapper.eq("hoscode", "2000_0");
+//        int delete = hospitalSetMapper.delete(wrapper);
+//        System.out.println(delete);
+//    }
 
 }
