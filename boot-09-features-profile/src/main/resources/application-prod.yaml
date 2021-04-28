@@ -1,2 +1,5 @@
+server:
+  port: 8081
 person:
   name: prod-张三
+  age: prod-18
