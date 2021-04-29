@@ -8,10 +8,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ConditionalOnMissingBean(HelloService.class)
 @EnableConfigurationProperties(HelloProperties.class)//默认HelloProperties放在容器中
 public class HelloServiceAutoConfiguration {
 
+    @ConditionalOnMissingBean(HelloService.class)
     @Bean
     public HelloService helloService(){
         HelloService helloService = new HelloService();
