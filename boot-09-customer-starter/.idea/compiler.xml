@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="atguigu-hello-spring-boot-starter" target="8" />
+      <module name="atguigu-hello-spring-boot-starter" target="1.8" />
       <module name="atguigu-hello-spring-boot-starter-autoconfigure" target="1.8" />
     </bytecodeTargetLevel>
   </component>
