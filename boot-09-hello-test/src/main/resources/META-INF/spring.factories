@@ -1,0 +1,11 @@
+# Initializers
+org.springframework.context.ApplicationContextInitializer=\
+com.atguigu.study.listener.MyApplicationContextInitializer
+
+# Application Listeners
+org.springframework.context.ApplicationListener=\
+com.atguigu.study.listener.MyApplicationListener
+
+# Run Listeners
+org.springframework.boot.SpringApplicationRunListener=\
+com.atguigu.study.listener.MySpringApplicationRunListener
