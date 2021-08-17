@@ -18,7 +18,7 @@ public class DirectConsumer {
 
         /**
          * 参数1：String queue 队列名称
-         * 参数2：boolean autoAck 开启消息的自动确认机制
+         * 参数2：boolean autoAck 开启消息的自动确认机制，一般都选true，不然消息被消费后会unacked，下次消费者重启时会再消费一次
          * 参数3：Consumer callback  消费时回调接口
          */
         //消费消息
