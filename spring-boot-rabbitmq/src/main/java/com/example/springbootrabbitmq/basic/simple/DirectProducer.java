@@ -1,4 +1,4 @@
-package com.example.springbootrabbitmq.basic.direct;
+package com.example.springbootrabbitmq.basic.simple;
 
 import com.example.springbootrabbitmq.basic.RabbitMqUtils;
 import com.rabbitmq.client.Channel;
