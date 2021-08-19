@@ -14,14 +14,14 @@ public class DirectProducer {
         final String exchange = "logs-direct";
         /**
          * @String 交换机名称
-         * @BuiltinExchangeType  fanout 广播类型
-         * 声明fanout交换机(不存在时会创建)
+         * @BuiltinExchangeType  direct 直接类型
+         * 声明direct交换机(不存在时会创建)
          */
         channel.exchangeDeclare(exchange, BuiltinExchangeType.DIRECT);
 
         /**
          * @String exchange，交换机名称
-         * @String routingKey，队列名称，在fanout模式下指定也没有作用，在direct模式下就要指定了
+         * @String routingKey，路由key，在fanout模式下指定也没有作用，在direct模式下就要指定了
          * 发送消息
          */
         String routingKey1 = "error";
