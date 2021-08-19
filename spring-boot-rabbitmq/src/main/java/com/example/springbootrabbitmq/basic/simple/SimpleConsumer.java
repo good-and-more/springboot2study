@@ -8,7 +8,7 @@ import java.io.IOException;
 /**
  * @author learn_and_think
  */
-public class DirectConsumer {
+public class SimpleConsumer {
     public static void main(String[] args) throws IOException {
         Connection conn = RabbitMqUtils.createConn();
         Channel channel = conn.createChannel();
@@ -31,7 +31,7 @@ public class DirectConsumer {
              * @throws IOException
              */
             @Override
-            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) {
                 System.out.println("消费消息：" + new String(body));
             }
         });

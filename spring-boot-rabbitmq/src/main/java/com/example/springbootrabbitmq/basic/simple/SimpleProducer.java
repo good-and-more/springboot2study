@@ -9,7 +9,7 @@ import java.io.IOException;
 /**
  * @author learn_and_think
  */
-public class DirectProducer {
+public class SimpleProducer {
     public static void main(String[] args) throws IOException {
         // 通过工具类获取连接，通过连接获取通道
         Connection conn = RabbitMqUtils.createConn();
