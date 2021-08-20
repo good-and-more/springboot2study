@@ -21,9 +21,8 @@ public class FanoutProducer {
         /**
          * @String exchange，交换机名称
          * @String routingKey，队列名称，在fanout模式下指定也没有作用
-         * 发送消息
+         * 发送消息，接收消息方，*和#都可以表示0个单词
          */
-        //
         channel.basicPublish("logs-fanout","",null,"hello logs-fanout".getBytes());
 
         RabbitMqUtils.closeConn(channel,conn);
