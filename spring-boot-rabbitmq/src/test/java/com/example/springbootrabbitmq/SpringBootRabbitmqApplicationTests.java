@@ -38,12 +38,31 @@ class SpringBootRabbitmqApplicationTests {
     @Test
     void testFanout() {
         /**
-         * 参数一：队列名称
-         * 参数二：消息内容
+         * 参数一：交换机名称
+         * 参数三：消息内容
          */
         for (int i = 0; i < 10; i++) {
             rabbitTemplate.convertAndSend("fanout-boot-exchange","","fanout-boot " + i);
         }
     }
 
+    @Test
+    void testDirect() {
+        /**
+         * 参数一：交换机名称
+         * 参数二：路由
+         */
+        rabbitTemplate.convertAndSend("direct-boot-exchange","error","direct-boot-error");
+        rabbitTemplate.convertAndSend("direct-boot-exchange","info","direct-boot-info");
+    }
+
+    @Test
+    void testTopic() {
+        /**
+         * 参数一：交换机名称
+         * 参数二：路由
+         */
+        rabbitTemplate.convertAndSend("topic-boot-exchange","user.role.query","topic boot user.role.query");
+        rabbitTemplate.convertAndSend("topic-boot-exchange","user.role","topic boot user.role");
+    }
 }
