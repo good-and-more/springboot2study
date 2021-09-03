@@ -4,16 +4,15 @@ spring:
   application:
     name: mqtt-demo
 mqtt:
-  host: tcp://112.74.104.62:1883
+  host: tcp://172.16.1.171:1883
   version: 3.1.1
-  userName: admin
-  password: admin
-  connectAttemptsMax: 3
-  reconnectAttemptsMax: 2
-  #?????mqtt??????????
+  username: mocar_easy_01
+  password: mocar_easy_01
+  #connectAttemptsMax: 3
+  #reconnectAttemptsMax: 2
   enable: true
   msgTopic:
-    #mqtt????
-    gduStreamStart: gdu/realVideo/streamStart
-    gduStreamStop: gdu/realVideo/streamEnd
+    testTopic: test
+    streamStart: streamStart
+    streamStop: streamEnd
 
